@@ -3,12 +3,19 @@ pipeline
  agent any   
     stages
     {
-        stage("Saludar")
+        stage("Creacion de fichero")
         {
+            
             steps
             {
-                echo "Hola mundo!"
+                
+                script
+                {
+                    def cadena = "Prueba integración Git y Jenkins"
+                    writeFile(file: "salida.txt", text: cadena)
+                }
             }
+            
         }
     }
 }
